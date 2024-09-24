@@ -14,7 +14,7 @@ const Header = () => {
     <div className='flex justify-between items-center p-4 bg-[#FF6600]'>
       <img src={logo} alt="" className='w-12' />
       <div className="navLinks">
-        <ul className={isResponsive ? ' absolute z-10 left-0 gap-3 flex flex-col bg-[#FF6600] px-[30px] pb-[20px] pt-[50px] w-[60%]' :'flex items-center gap-4 md:inline-flex max-sm:hidden'}>
+        <ul className={isResponsive ? 'animate__animated animate__fadeInLeft absolute z-10 left-0 gap-3 top-[78px] flex flex-col bg-[#FF6600] px-[30px] py-[20px] w-[60%]' :'flex items-center gap-4 md:inline-flex max-sm:hidden'}>
             <NavLink to='/' className='hover:text-[blue]'>Home</NavLink>
             <NavLink to='/' className='hover:text-[blue]'>Products</NavLink>
             <NavLink to='/' className='hover:text-[blue]'>Category</NavLink>

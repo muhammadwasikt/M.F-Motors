@@ -12,7 +12,7 @@ const Header = () => {
     setIsResponsive(!isResponsive)
   }
   return (
-    <div className='flex justify-between items-center p-4 bg-[#FF6600]'>
+    <div className='flex justify-between items-center p-4 bg-[#FF6600] sticky top-0 z-10'>
       <img src={logo} alt="" className='w-12' />
       <div className="navLinks">
         <ul className={isResponsive ? 'animate__animated animate__slideInLeft absolute z-10 left-0 gap-3 top-[78px] flex flex-col bg-[#FF6600] px-[30px] py-[20px] w-[60%]' :'flex items-center gap-4 md:inline-flex max-sm:hidden'}>

@@ -3,6 +3,7 @@ import logo from '/assest/images/logo.png'
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
 import { useState } from 'react';
+import Button from './common/Button';
 
 const Header = () => {
   const [isResponsive, setIsResponsive] = useState(false);
@@ -14,15 +15,15 @@ const Header = () => {
     <div className='flex justify-between items-center p-4 bg-[#FF6600]'>
       <img src={logo} alt="" className='w-12' />
       <div className="navLinks">
-        <ul className={isResponsive ? 'animate__animated animate__fadeInLeft absolute z-10 left-0 gap-3 top-[78px] flex flex-col bg-[#FF6600] px-[30px] py-[20px] w-[60%]' :'flex items-center gap-4 md:inline-flex max-sm:hidden'}>
-            <NavLink to='/' className='hover:text-[blue]'>Home</NavLink>
-            <NavLink to='/' className='hover:text-[blue]'>Products</NavLink>
-            <NavLink to='/' className='hover:text-[blue]'>Category</NavLink>
-            <NavLink to='/' className='hover:text-[blue]'><button className={isResponsive ? null :'p-2 px-3 rounded-3xl bg-[#8FD14F] active:translate-y-[1px]'}>Sign Up</button></NavLink>
-            <NavLink to='/' className='hover:text-[blue]'><button className={isResponsive ? null :'p-2 px-3 rounded-3xl bg-[#8FD14F] active:translate-y-[1px]'}>Sign In</button></NavLink>
-            <NavLink to='/' className='hover:text-[blue]'><button className={isResponsive ? null :'p-2 px-3 rounded-3xl bg-[#8FD14F] active:translate-y-[1px]'}>Sign Out</button></NavLink>
+        <ul className={isResponsive ? 'animate__animated animate__slideInLeft absolute z-10 left-0 gap-3 top-[78px] flex flex-col bg-[#FF6600] px-[30px] py-[20px] w-[60%]' :'flex items-center gap-4 md:inline-flex max-sm:hidden'}>
+            <NavLink to='/' className='no-underline text-black '>Home</NavLink>
+            <NavLink to='/' className='no-underline text-black '>Products</NavLink>
+            <NavLink to='/' className='no-underline text-black '>Category</NavLink>
+            <NavLink to='/' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign In' /> </NavLink>
+            <NavLink to='/' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Up' /> </NavLink>
+            <NavLink to='/' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Out' /> </NavLink>
         </ul>
-            <button className='hidden max-sm:inline-flex text-4xl' onClick={click}><HiBars3BottomRight className={isResponsive ? 'hidden':'inline-flex'}/><IoMdClose className={isResponsive ? 'inline-flex':'hidden'}/></button>
+            <div className='hidden max-sm:inline-flex text-4xl' onClick={click}><HiBars3BottomRight className={isResponsive ? 'hidden':'inline-flex'}/><IoMdClose className={isResponsive ? 'inline-flex':'hidden'}/></div>
       </div>
     </div>
   )

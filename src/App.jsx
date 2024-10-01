@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router"
 import Footer from "./components/Footer"
-import Header from "./components/header"
+import Header from "./components/Header"
 import Products from "./pages/Products"
 import Home from "./pages/Home"
 import Category from "./pages/Category"

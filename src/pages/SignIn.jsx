@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 
 const SignIn = () => {
+  const [isPassword , setIsPassword] = useState(false)
   const {
     register,
     handleSubmit,
@@ -28,7 +29,14 @@ const SignIn = () => {
         const user = userCredential.user; 
         setLoader(false)
         reset()
-        window.location.href = '/home'
+        if (user.emailVerified === true) {
+          window.location.href = '/home'
+        }else{
+          Swal.fire({
+            title: "Please verify your email",
+            footer: '<a href="https://mail.google.com/mail/u/0/" target="_blank">Go to gmail</a>'
+          });
+        }
         // ...
       })
       .catch((error) => {
@@ -83,9 +91,10 @@ const continueWithGoogle = ()=>{
     <div className="w-[100%] mb-4">
     <div className="flex items-center w-[100%] border-[1px] rounded-[20px] p-2">
     <RiLockPasswordLine className="text-[30px]"/>
-    <input maxLength='8' className="py-1 px-3 outline-none w-[100%]" placeholder="Pasword" type="password" {...register("pasword", { required: true })} />
+    <input className="py-1 px-3 outline-none w-[100%]" maxLength='8' placeholder="Password" type={isPassword ?  "text" : "password"} {...register("pasword", { required: true })} />
+    <input type="checkbox" onClick={()=>setIsPassword(!isPassword)}/>
     </div>
-    {errors.pasword && <span className="text-[10px] text-[red] mb-3 px-2">Pasword is required</span>}
+    {errors.pasword && <span className="text-[10px] text-[red] mb-3 px-2">Password is required</span>}
     </div>
     <input className="bg-[yellow] p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={loader ?'Loading....':'Sign In'}/>
     <p className="text-center p-3 mb-[-3px]">-----Social sign in-----</p>

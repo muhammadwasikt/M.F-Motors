@@ -34,7 +34,11 @@ const SignUp = () => {
             // Email verification sent!
             // ...
           }); 
-        Swal.fire('Congratulations your account is successfully create. Please verify your email')
+        Swal.fire({
+          title: "Congratulations your account is successfully create",
+          text: "Please check your email to verify your account",
+          footer: '<a href="https://mail.google.com/mail/u/0/" target="_blank">Go to gmail</a>'
+        });
         setLoader(false)
         reset()
         console.log(user)

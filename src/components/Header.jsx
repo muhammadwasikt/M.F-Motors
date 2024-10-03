@@ -2,15 +2,30 @@ import { NavLink } from 'react-router-dom';
 import logo from '/assest/images/logo.png'
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from './common/Button';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../firebase';
+
 
 const Header = () => {
   const [isResponsive, setIsResponsive] = useState(false);
+  const  [userLogin, setUserLogin] = useState(false);
 
   const click = ()=>{
     setIsResponsive(!isResponsive)
   }
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const uid = user.uid;
+        setUserLogin(true)
+        // ...
+      } else {
+        setUserLogin(false)
+      }
+    });
+  },[])
   return (
     <div className='flex justify-between items-center p-3 bg-[#FF6600] sticky top-0 z-10'>
       <img src={logo} alt="" className='w-12' />
@@ -19,9 +34,9 @@ const Header = () => {
             <NavLink to='/home' className='no-underline text-black '>Home</NavLink>
             <NavLink to='/products' className='no-underline text-black '>Products</NavLink>
             <NavLink to='/category' className='no-underline text-black '>Category</NavLink>
-            <NavLink to='/signin' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign In' /> </NavLink>
-            <NavLink to='/signup' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Up' /> </NavLink>
-            <NavLink to='/signout' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Out' /> </NavLink>
+            {!userLogin ? <><NavLink to='/signin' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign In' /> </NavLink>
+            <NavLink to='/signup' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Up' /> </NavLink> </> :
+            <NavLink to='/signout' className='no-underline text-black '><Button isResponsive={isResponsive} title='Sign Out' /> </NavLink>}
         </ul>
             <div className='hidden max-sm:inline-flex text-4xl' onClick={click}><HiBars3BottomRight className={isResponsive ? 'hidden':'inline-flex'}/><IoMdClose className={isResponsive ? 'inline-flex':'hidden'}/></div>
       </div>

@@ -1,11 +1,15 @@
+import Swal from "sweetalert2";
 
 
 const LogOut = () => {
   return (
     <div>
-      <h1>Sign Out</h1>
+      <div>
+        
+      </div>
     </div>
   )
 }
 
 export default LogOut
+

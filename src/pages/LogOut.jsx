@@ -17,7 +17,7 @@ const LogOut = ({signout , setsignOut}) => {
     <>
     {signout ? 
       <div className="absolute w-[100%] h-[100vh] flex justify-center items-center">
-      <div className="max-w-[400px] w-[100%] flex flex-col gap-3 items-center shadow-lg  px-2 py-4 bg-white mb-[-50%] ">
+      <div className="max-w-[400px] w-[100%] flex flex-col gap-3 items-center shadow-2xl  px-2 py-4 bg-white mb-[-50%] ">
       <PiWarningOctagon className="text-[red] text-[50px]" />
       <p className="text-[18px] ">Are you sure you want to  log out?</p>
       <div  className="flex gap-3">

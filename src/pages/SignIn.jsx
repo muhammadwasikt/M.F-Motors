@@ -96,9 +96,9 @@ const continueWithGoogle = ()=>{
     </div>
     {errors.pasword && <span className="text-[10px] text-[red] mb-3 px-2">Password is required</span>}
     </div>
-    <input className="bg-[yellow] p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={loader ?'Loading....':'Sign In'}/>
+    <input className="bg-buttonColor p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={loader ?'Loading....':'Sign In'}/>
     <p className="text-center p-3 mb-[-3px]">-----Social sign in-----</p>
-    <button type="click" onClick={continueWithGoogle} className="bg-[yellow] flex items-center justify-center gap-x-1 p-2 shadow-md active:translate-y-[2px] active:shadow-none"><FcGoogle />Continue with google</button>
+    <button type="click" onClick={continueWithGoogle} className="bg-buttonColor flex items-center justify-center gap-x-1 p-2 shadow-md active:translate-y-[2px] active:shadow-none"><FcGoogle />Continue with google</button>
     <p className="text-[12px] text-center pt-3 mb-[-10px]">Don't have an account:<NavLink  to="/signup" className="text-[blue] no-underline"> Sign Up</NavLink></p>
     </form>
     </div>

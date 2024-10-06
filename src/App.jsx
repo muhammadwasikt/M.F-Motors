@@ -8,34 +8,11 @@ import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
 import AdminSignIn from "./admin/AdminSignIn"
 import AdminDashboard from "./admin/AdminDashboard"
-import { onAuthStateChanged } from "firebase/auth"
-import { auth } from "../firebase"
-import { useEffect, useState } from "react"
 import LogOut from "./pages/LogOut"
 
 const App = () => {
-const [user , setUser] = useState(false)
-const [loader , setLoader] =  useState(false)
-useEffect(()=>{
-  setLoader(true)
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      const uid = user.uid;
-      if (user.emailVerified === true) {
-        setUser(true)
-        setLoader(false)
-      }
-      // ...
-    } else {
-      setUser(false)
-      setLoader(false)
-    }
-  });
-},[])
       return (
         <>
-          {loader ? <div className="loader mx-auto my-[250px]"></div> : <>
-          {user ? <> 
            <Header />
             <Routes>
             <Route path="/" element={<Home />} />
@@ -48,8 +25,7 @@ useEffect(()=>{
             <Route path="/adminfolder" element={<AdminSignIn />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             </Routes>
-           <Footer /> </> : <SignIn />}</>}
-
+           <Footer />
         </>
       )
     }

@@ -1,8 +1,8 @@
 
-const Button = ({isResponsive , title , click}) => {
+const Button = ({isResponsive , title , click , clas}) => {
   return (
     <div>
-     <button className={isResponsive ? null :'p-2 px-3 rounded-3xl bg-[#8FD14F] active:translate-y-[1px]'} onClick={click}>{title}</button> 
+     <button className={isResponsive ? null : clas} onClick={click}>{title}</button> 
     </div>
   )
 }

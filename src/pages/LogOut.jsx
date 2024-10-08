@@ -8,10 +8,11 @@ const LogOut = ({signout , setsignOut}) => {
     const userSignOut = ()=>{
         signOut(auth).then(() => {
             // Sign-out successful.
-            window.location.href = '/home'
+            window.location.NavLink = '/home'
           }).catch((error) => {
             // An error happened.
           });
+          setsignOut(false)
     }
   return (
     <>

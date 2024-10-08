@@ -12,7 +12,9 @@ export default {
         secondaryColor:'#0B192C',
         textColor:'#000000',
         buttonColor:'yellow',
-        hoverColor:'blue'
+        hoverColor:'blue',
+        inputColor:'#f1f3f4',
+        errorColor:'red'
       }
     },
   },

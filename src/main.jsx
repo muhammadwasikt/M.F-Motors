@@ -1,18 +1,10 @@
-
-import App from './App.jsx'
+import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import { createRoot } from 'react-dom/client';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css';
-import {createBrowserRouter, RouterProvider,} from "react-router-dom";
-import Home from './pages/Home.jsx';
-import Products from './pages/Products.jsx';
-import Category from './pages/Category.jsx';
-import { createRoot } from 'react-dom/client';
-import SignIn from './pages/SignIn.jsx';
-import SignUp from './pages/SignUp.jsx';
-import LogOut from './pages/LogOut.jsx';
-import AdminSignIn from './admin/AdminSignIn.jsx';
-import AdminDashboard from './admin/AdminDashboard.jsx';
+import {App , Home , Products , Category , SignIn ,SignUp ,AdminDashboard , AdminSignIn} from './utils/import.js'
+
 
 const router = createBrowserRouter([
   {
@@ -40,10 +32,6 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <SignUp />
-  },
-  {
-    path: '/signout',
-    element: <LogOut />
   },
   {
     path: '/adminfolder',

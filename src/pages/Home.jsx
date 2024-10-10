@@ -1,6 +1,5 @@
-import Carousels from "../components/common/Carousels";
-import Category from "./Category";
-import Products from "./Products";
+import {Carousels , Products , Category} from '../utils/import'
+
 
 
 

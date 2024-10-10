@@ -1,9 +1,9 @@
-import {createBrowserRouter, RouterProvider,} from "react-router-dom";
+import {createBrowserRouter, Router, RouterProvider,} from "react-router-dom";
 import { createRoot } from 'react-dom/client';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'animate.css';
-import {App , Home , Products , Category , SignIn ,SignUp ,AdminDashboard , AdminSignIn} from './utils/import.js'
+import {App , Home , Products , Category , SignIn ,SignUp ,Admin, AdminSignIn, AdminDashboard} from './utils/import.js'
 
 
 const router = createBrowserRouter([
@@ -12,30 +12,39 @@ const router = createBrowserRouter([
     element: <App />,
     children:[
     {
-    path: '/home',
+    path: 'home',
     element: <Home />
     },
     {
-      path: '/products',
+      path: 'products',
       element: <Products />
     },
     {
-      path: '/category',
+      path: 'category',
       element: <Category />
     },
   ]
   },
   {
-    path: '/signin',
-    element: <SignIn />
+     path: '/user',
+     children:[
+      {
+        path: 'signin',
+        element: <SignIn />
+      },
+      {
+        path: 'signup',
+        element: <SignUp />
+      },
+     ]
   },
   {
-    path: '/signup',
-    element: <SignUp />
+    path: '/admin',
+    element:<Admin />,
   },
   {
-    path: '/adminfolder',
-    element: <AdminSignIn />
+    path: '/admin/signin',
+    element:<AdminSignIn />,
   },
   {
     path: '/admin/dashboard',
@@ -45,5 +54,6 @@ const router = createBrowserRouter([
 
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+   <RouterProvider router={router} />
+
 );

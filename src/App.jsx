@@ -1,10 +1,13 @@
-import {AppLayOut} from './utils/import.js'
+import { Outlet } from "react-router"
+import {Header , Footer} from './utils/import'
 
 
 const App = () => {
       return (
         <>
-           <AppLayOut />
+           <Header />
+           <Outlet />
+           <Footer />
         </>
       )
     }

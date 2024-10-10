@@ -2,30 +2,61 @@ import { useForm } from "react-hook-form"
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import Swal from 'sweetalert2'
+import {AdminDashboard} from "../utils/import";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router";
+import { useState } from "react";
+
+
+
+
 
 const AdminSignIn = () => {
+  const navigate =  useNavigate();
+ const [isLoader , setIsLoader] = useState(false)
   const {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm()
-
   const onSubmit = (data) => {
+   setIsLoader(true)
     const {email , pasword} = data
-    if (email !== 'asharimran41@gmail.com' && pasword !== 'Ashar123@') {
+    if (email !== 'asharimran41@gmail.com' && pasword !== 'Wasi123@') {
       Swal.fire("Please type valid email and pasword");
+      setIsLoader(false)
+      reset()
     }if (email !== 'asharimran41@gmail.com') {
       Swal.fire("Please type valid email");
-    }else if (pasword !== 'Ashar123@') {
+      setIsLoader(false)
+      reset()
+    }else if (pasword !== 'Wasi123@') {
       Swal.fire("Please type valid password");
+      setIsLoader(false)
+      reset()
     }else {
-      window.location.href = '/admin/dashboard'
+      signInWithEmailAndPassword(auth, email, pasword)
+      .then((userCredential) => {
+       // Signed in 
+       const user = userCredential.user;
+       navigate('/admin/dashboard')
+       setIsLoader(false)
+       reset()
+       // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setIsLoader(false)
+        reset()
+      });
     }
-    console.log(data)
+        console.log(data)
   }
   console.log(watch("example")) // watch input value by passing the name of it
-
   return (
     <div className="w-[100%] flex justify-center items-center h-[100vh] p-[30px]">
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-[400px] w-[100%] flex flex-col shadow-lg p-[30px]">
@@ -44,7 +75,7 @@ const AdminSignIn = () => {
     </div>
     {errors.pasword && <span className="text-[10px] text-[red] mb-3 px-2">Pasword is required</span>}
     </div>
-    <input className="bg-[yellow] p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value='Sign in'/>
+    <input className="bg-[yellow] p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={isLoader ? 'Loading...':'Sign in'}/>
     </form>
     </div>
   )

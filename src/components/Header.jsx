@@ -48,8 +48,8 @@ const Header = () => {
             <NavLink to='/home' className='no-underline text-secondaryColor hover:text-hoverColor '>Home</NavLink>
             <NavLink to='/products' className='no-underline text-secondaryColor hover:text-hoverColor '>Products</NavLink>
             <NavLink to='/category' className='no-underline text-secondaryColor hover:text-hoverColor '>Category</NavLink>
-            {!userLogin ? <><NavLink to='/signin' className='no-underline text-secondaryColor hover:text-hoverColor '><Button clas='p-1 bg-primaryColor text-white rounded-full px-2' isResponsive={isResponsive} title='Sign In' /> </NavLink>
-            <NavLink to='/signup' className='no-underline text-secondaryColor hover:text-hoverColor '><Button clas='p-1 bg-primaryColor text-white rounded-full px-2' isResponsive={isResponsive} title='Sign Up' /> </NavLink> </> : isResponsive ? <Button isResponsive={isResponsive} title='Sign Out' /> :
+            {!userLogin ? <><NavLink to='/user/signin' className='no-underline text-secondaryColor hover:text-hoverColor '><Button clas='p-1 bg-primaryColor text-white rounded-full px-2' isResponsive={isResponsive} title='Sign In' /> </NavLink>
+            <NavLink to='/user/signup' className='no-underline text-secondaryColor hover:text-hoverColor '><Button clas='p-1 bg-primaryColor text-white rounded-full px-2' isResponsive={isResponsive} title='Sign Up' /> </NavLink> </> : isResponsive ? <Button isResponsive={isResponsive} title='Sign Out' /> :
             <FaRegUserCircle className='text-3xl text-secondaryColor' isResponsive={isResponsive} title='Sign Out' onClick={handleLogOut}/>}
         </ul>
             <div className='hidden justify-end w-[100%] md:hidden sm:inline-flex max-sm:inline-flex text-4xl' onClick={click}><HiBars3BottomRight className={isResponsive ? 'hidden':'inline-flex'}/><IoMdClose className={isResponsive ? 'inline-flex':'hidden'}/></div>

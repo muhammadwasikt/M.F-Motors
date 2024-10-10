@@ -10,10 +10,11 @@ import Category from '../pages/Category.jsx';
 import AddPost from "../admin/AddPost";
 import Button from "../components/common/Button";
 import Card from "../components/common/Card.jsx";
-import  Footer from "../components/Footer";
+import Footer from "../components/Footer";
 import Header from '../components/Header.jsx';
 import AppLayOut from "../AppLayOut.jsx";
+import Carousels from '../components/common/Carousels.jsx'
+import Admin from "../admin/Admin.jsx";
 
-
-export {App ,SignUp , SignIn , LogOut , AdminDashboard ,AddPost ,AdminSignIn , Home , Products, Category , Button , Card , Footer ,  Header , AppLayOut}
+export {App ,Admin , SignUp , Carousels , SignIn , LogOut , AdminDashboard ,AddPost ,AdminSignIn , Home , Products, Category , Button , Card , Footer ,  Header , AppLayOut}
 

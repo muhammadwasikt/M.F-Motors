@@ -115,7 +115,7 @@ const SignUp = () => {
     <input className="bg-buttonColor p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={loader ?'Loading....':'Sign up'}/>
     <p className="text-center p-3 mb-[-3px]">-----Social sign Up-----</p>
     <button onClick={continueWithGoogle} className="bg-buttonColor flex items-center justify-center gap-x-1 p-2 shadow-md active:translate-y-[2px] active:shadow-none"><FcGoogle />Sign up with google</button>
-    <p className="text-[12px] text-center pt-3 mb-[-10px]">Already have an account:<NavLink  to="/signin" className="text-[blue] no-underline"> Sign In</NavLink></p>
+    <p className="text-[12px] text-center pt-3 mb-[-10px]">Already have an account:<NavLink  to="/user/signin" className="text-[blue] no-underline"> Sign In</NavLink></p>
     </form>
     </div>
   )

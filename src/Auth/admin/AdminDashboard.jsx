@@ -1,4 +1,4 @@
-import { LiaBarsSolid,LogOut , TfiSearch, AddPost, useNavigate, onAuthStateChanged, auth, logo, Button, useState, useEffect, Carousel } from '../../utils/import'
+import { LiaBarsSolid,LogOut , TfiSearch, AddPost, useNavigate, onAuthStateChanged, auth, logo, Button, useState, useEffect, Carousel, IoIosAddCircleOutline, BiImageAdd } from '../../utils/import'
 
 const AdminDashboard = () => {
     const [isAddPost, setIsAddPost] = useState(false)
@@ -51,9 +51,23 @@ const AdminDashboard = () => {
                         <LogOut signout={logOut} setsignOut={setLogOut}/>
                         <AddPost setIsAddPost={setIsAddPost} isAddPost={isAddPost} />
                         <Carousel isCarousel={isCarousel}  setIsCarousel={setIsCarousel} /> 
-                        <Button title='Add New Post' click={newPost} clas='p-2 px-4 m-3 bg-inputColor rounded-lg shadow-md active:shadow-none active:translate-y-1' />
-                        <Button title='Add Carousle Image' click={newCarousel} clas='p-2 px-4 m-3 bg-inputColor rounded-lg shadow-md active:shadow-none active:translate-y-1' />
-                    
+                        <div className='flex w-[100%]'>
+                        <div className='max-w-[300px] w-[100%] h-[100vh] border-r-2'>
+                        <Button title={
+                            <div className='flex items-center gap-x-2'>
+                                <IoIosAddCircleOutline className='text-[24px]'/> 
+                                <p>Add New Post</p>
+                                </div>} click={newPost} clas='w-[100%] p-4 border-b-[1px] text-left bg-inputColor' />
+                        <Button title={
+                            <div className='flex items-center gap-x-2'>
+                                <BiImageAdd className='text-[24px]'/> 
+                                <p>Add Carousel Image</p>
+                                </div>} click={newCarousel} clas='w-[100%] p-4 border-b-[1px] text-left bg-inputColor' />
+                        </div>
+                        <div>
+
+                        </div>
+                        </div>
                     </div>
                 </div>
             }

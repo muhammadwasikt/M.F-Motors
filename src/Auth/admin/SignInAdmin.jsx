@@ -16,15 +16,15 @@ const SignInAdmin = () => {
   const onSubmit = (data) => {
    setIsLoader(true)
     const {email , pasword} = data
-    if (email !== 'asharimran41@gmail.com' && pasword !== 'Wasi123@') {
+    if (email !== import.meta.env.VITE_ADMIN_EMAIL && pasword !== import.meta.env.VITE_ADMIN_PASSWORD) {
       alert("Please type valid email and pasword");
       setIsLoader(false)
       reset()
-    }if (email !== 'asharimran41@gmail.com') {
+    }if (email !== import.meta.env.VITE_ADMIN_EMAIL) {
       alert("This email is not registerd");
       setIsLoader(false)
       reset()
-    }else if (pasword !== 'Wasi123@') {
+    }else if (pasword !== import.meta.env.VITE_ADMIN_PASSWORD) {
       alert("Please type correct password");
       setIsLoader(false)
       reset()
@@ -45,8 +45,9 @@ const SignInAdmin = () => {
         reset()
       });
     }
-        console.log(data)
   }
+  const email = import.meta.env.VITE_ADMIN_EMAIL
+  console.log(email)
   console.log(watch("example")) // watch input value by passing the name of it
   return (
     <div className="w-[100%] flex justify-center items-center h-[100vh] p-[30px]">

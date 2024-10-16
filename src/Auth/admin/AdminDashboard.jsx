@@ -65,7 +65,7 @@ const AdminDashboard = () => {
                                 </div>} click={newCarousel} clas='w-[100%] p-4 border-b-[1px] text-left bg-inputColor' />
                         </div>
                         <div>
-
+                        
                         </div>
                         </div>
                     </div>

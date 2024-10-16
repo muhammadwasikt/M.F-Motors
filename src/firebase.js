@@ -1,6 +1,6 @@
 import {getAuth, GoogleAuthProvider ,onAuthStateChanged , signOut , signInWithEmailAndPassword } from "firebase/auth"
 import { initializeApp } from "firebase/app";
-import { getFirestore , collection, addDoc } from "firebase/firestore";
+import { getFirestore ,  collection, getDocs, addDoc } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 
@@ -18,4 +18,4 @@ const auth = getAuth(app)
 const provider = new GoogleAuthProvider();
 const db = getFirestore(app);
 
-export {auth , provider , collection, addDoc, db ,onAuthStateChanged , getStorage, ref, uploadBytesResumable,signInWithEmailAndPassword , getDownloadURL ,signOut}
+export {auth , provider , collection, addDoc, db , getDocs ,onAuthStateChanged , getStorage, ref, uploadBytesResumable,signInWithEmailAndPassword , getDownloadURL ,signOut}

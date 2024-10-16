@@ -27,6 +27,7 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
         }
         reset()
         setIsDownloadUrl(null)
+        setIsAddPost(false)
       }
       const storage = getStorage();
       const fileSubmit =(event)=>{
@@ -52,6 +53,7 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
       
       const storageRef = ref(storage, 'images/' + isFile);
       const uploadTask = uploadBytesResumable(storageRef, isFile);
+       
 
       
   return (
@@ -92,7 +94,8 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
       {errors.image && <span className="text-[12px] text-errorColor">This field is required</span>}
       {loader? <div className="loader"></div> : null}
       </div>
-      <input type="submit" className="bg-mainColor p-2 px-4 rounded-xl my-3"/>
+      <input type="submit" className="bg-mainColor p-2 px-4 rounded-xl my-3" value="Add Post"/>
+
     </form>
       </div>
     </div> : null}

@@ -4,6 +4,8 @@ import { useForm ,auth ,useState , useNavigate ,MdOutlineEmail , RiLockPasswordL
 
 
 const SignInAdmin = () => {
+  const email = import.meta.env.VITE_ADMIN_EMAIL
+  const password = import.meta.env.VITE_ADMIN_PASSWORD
   const navigate =  useNavigate();
  const [isLoader , setIsLoader] = useState(false)
   const {
@@ -16,15 +18,15 @@ const SignInAdmin = () => {
   const onSubmit = (data) => {
    setIsLoader(true)
     const {email , pasword} = data
-    if (email !== import.meta.env.VITE_ADMIN_EMAIL && pasword !== import.meta.env.VITE_ADMIN_PASSWORD) {
+    if (email !== email && pasword !== password) {
       alert("Please type valid email and pasword");
       setIsLoader(false)
       reset()
-    }if (email !== import.meta.env.VITE_ADMIN_EMAIL) {
+    }if (email !== email) {
       alert("This email is not registerd");
       setIsLoader(false)
       reset()
-    }else if (pasword !== import.meta.env.VITE_ADMIN_PASSWORD) {
+    }else if (pasword !== password) {
       alert("Please type correct password");
       setIsLoader(false)
       reset()
@@ -46,9 +48,7 @@ const SignInAdmin = () => {
       });
     }
   }
-  const email = import.meta.env.VITE_ADMIN_EMAIL
-  console.log(email)
-  console.log(watch("example")) // watch input value by passing the name of it
+  console.log(email , password)
   return (
     <div className="w-[100%] flex justify-center items-center h-[100vh] p-[30px]">
     <form onSubmit={handleSubmit(onSubmit)} className="max-w-[400px] w-[100%] flex flex-col shadow-lg p-[30px]">

@@ -4,25 +4,24 @@ import { useForm ,auth ,useState , useNavigate ,MdOutlineEmail , RiLockPasswordL
 
 
 const SignInAdmin = () => {
-  const email = import.meta.env.VITE_ADMIN_EMAIL
+  const adminEmail = import.meta.env.VITE_ADMIN_EMAIL
   const password = import.meta.env.VITE_ADMIN_PASSWORD
   const navigate =  useNavigate();
  const [isLoader , setIsLoader] = useState(false)
   const {
     register,
     handleSubmit,
-    watch,
     reset,
     formState: { errors },
   } = useForm()
   const onSubmit = (data) => {
    setIsLoader(true)
     const {email , pasword} = data
-    if (email !== email && pasword !== password) {
+    if (email !== adminEmail && pasword !== password) {
       alert("Please type valid email and pasword");
       setIsLoader(false)
       reset()
-    }if (email !== email) {
+    }if (email !== adminEmail) {
       alert("This email is not registerd");
       setIsLoader(false)
       reset()
@@ -48,10 +47,9 @@ const SignInAdmin = () => {
       });
     }
   }
-  console.log(email , password)
   return (
     <div className="w-[100%] flex justify-center items-center h-[100vh] p-[30px]">
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-[400px] w-[100%] flex flex-col shadow-lg p-[30px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="max-w-[400px] w-[100%] flex flex-col shadow-2xl p-[30px]">
     <h1 className="text-center mb-5">SIGN IN</h1>
     <div className="w-[100%] mb-4">
     <div className="flex items-center w-[100%] border-[1px] rounded-[20px] p-2">
@@ -67,7 +65,7 @@ const SignInAdmin = () => {
     </div>
     {errors.pasword && <span className="text-[10px] text-[red] mb-3 px-2">Pasword is required</span>}
     </div>
-    <input className="bg-[yellow] p-2 shadow-md active:translate-y-[2px] active:shadow-none" type="submit" value={isLoader ? 'Loading...':'Sign in'}/>
+    <input className="bg-mainColor p-2 shadow-md active:translate-y-[2px] text-inputColor active:shadow-none" type="submit" value={isLoader ? 'Loading...':'Sign in'}/>
     </form>
     </div>
   )

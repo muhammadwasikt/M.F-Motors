@@ -1,7 +1,6 @@
 import {useForm ,IoIosCloseCircleOutline ,getStorage, ref, uploadBytesResumable, getDownloadURL, useRef, useState, addDoc, collection, db } from '../../utils/import.js'
 
 const AddPost = ({setIsAddPost , isAddPost}) => {
-  const [isFile , setIsFile] = useState()
   const [loader , setLoader] = useState(false)
   const [isDownloadUrl , setIsDownloadUrl] = useState()
     const {
@@ -13,7 +12,7 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
       const onSubmit = async (data) => {
         const {category , company , description ,price ,title} = data
         try {
-          const docRef = await addDoc(collection(db, "users"), {
+          const docRef = await addDoc(collection(db, "Admin"), {
            Category:category,
            Company:company,
            Description:description,
@@ -21,7 +20,6 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
            Title:title,
            Image:isDownloadUrl
           });
-          console.log("Document written with ID: ", docRef.id);
         } catch (e) {
           console.error("Error adding document: ", e);
         }
@@ -34,26 +32,28 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
         setLoader(true)
         const file = event.target.files[0];
         setIsFile(file.name)
+        const imagesRefWithFolder = ref(storage, 'images/'+file.name);
+        const uploadTask = uploadBytesResumable(imagesRefWithFolder, file);
         uploadTask.on('state_changed',
           (snapshot) => {
-          }, 
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log(progress)
+          },
           (error) => {
-           console.error(error)
-          }, 
+              console.log(error);
+          },
           () => {
-            // Upload completed successfully, now we can get the download URL
-            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-              setLoader(false)
-              setIsDownloadUrl(downloadURL)
-              console.log('File available at', isDownloadUrl);
-            });
-          }
-        );
-      }
-      
-      const storageRef = ref(storage, 'images/' + isFile);
-      const uploadTask = uploadBytesResumable(storageRef, isFile);
-       
+              getDownloadURL(uploadTask.snapshot.ref)
+                  .then((downloadURL) => {
+                        setIsDownloadUrl(downloadURL);
+                        console.log(downloadURL);
+                        
+                        setLoader(false)
+                    });
+            }
+            
+          )
+        }
 
       
   return (

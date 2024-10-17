@@ -1,13 +1,13 @@
-import { auth ,PiWarningOctagon , signOut , Button} from '../../utils/import'
+import { auth ,PiWarningOctagon , signOut , Button, toast} from '../../utils/import'
 
 
 
 
 const LogOut = ({signout , setsignOut}) => {
     const userSignOut = ()=>{
+      toast('Successfully Log Out')
         signOut(auth).then(() => {
             // Sign-out successful.
-            window.location.NavLink = '/home'
           }).catch((error) => {
             // An error happened.
           });

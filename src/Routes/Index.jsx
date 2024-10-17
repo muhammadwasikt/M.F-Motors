@@ -11,6 +11,10 @@ const routesLink = [
         element:<Home />
     },
     {
+        path: '/home',
+        element:<Home />
+    },
+    {
         path: '/auth/admin/dashboard',
         element:<AdminDashboard />
     },

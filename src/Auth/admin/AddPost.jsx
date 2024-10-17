@@ -1,4 +1,4 @@
-import {useForm ,IoIosCloseCircleOutline ,getStorage, ref, uploadBytesResumable, getDownloadURL, useRef, useState, addDoc, collection, db } from '../../utils/import.js'
+import {useForm ,IoIosCloseCircleOutline ,getStorage, ref, uploadBytesResumable, getDownloadURL, useRef, useState, addDoc, collection, db, ToastContainer, toast } from '../../utils/import.js'
 
 const AddPost = ({setIsAddPost , isAddPost}) => {
   const [loader , setLoader] = useState(false)
@@ -47,7 +47,7 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
                   .then((downloadURL) => {
                         setIsDownloadUrl(downloadURL);
                         console.log(downloadURL);
-                        
+                        toast("Image Successfully Upload")
                         setLoader(false)
                     });
             }
@@ -99,6 +99,7 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
     </form>
       </div>
     </div> : null}
+    <ToastContainer />
     </>
   )
 }

@@ -88,13 +88,13 @@ const AdminDashboard = () => {
                                         <p>Log Out</p>
                                     </div>} click={handleLogOut} clas='w-[100%] p-4 border-b-[1px] text-left bg-inputColor' />
                             </div>
-                            <div className='w-[100%] p-3 '>
+                            <div className='w-[100%] p-3'>
                                 {
                                     data && data.length > 0 ? data.map((item, index) => {
                                         const { Title, Image, Description } = item;
                                         // console.log(Image)
                                         return (
-                                            <div key={index} className="flex gap-y-1 border-2 p-2 bg-slate-100 items-center max-lg:flex max-lg:flex-col">
+                                            <div key={index} className="flex gap-y-1 border-2 p-2 m-2 bg-slate-100 items-center max-lg:flex max-lg:flex-col">
                                                 <img src={Image} className='w-[100px] max-lg:w-[100%] max-lg:h-[200px] object-cover'/>
                                                 <div className='w-[100%]'>
                                                 <div className='px-2 flex w-[100%] border-2 bg-inputColor py-1 max-sm:flex max-sm:flex-col'>

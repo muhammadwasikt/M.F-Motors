@@ -71,7 +71,7 @@ const AdminDashboard = () => {
                         <AddPost setIsAddPost={setIsAddPost} isAddPost={isAddPost} />
                         <Carousel isCarousel={isCarousel} setIsCarousel={setIsCarousel} />
                         <div className='flex w-[100%]'>
-                            <div className={sidePannel ? 'absolute animate__animated animate__fadeInLeft max-w-[300px] w-[100%] max-md:max-w-[100%] max-md:block h-[100vh] border-r-2' :'hidden'}>
+                            <div className={sidePannel ? 'absolute animate__animated animate__fadeInLeft max-w-[300px] w-[100%] max-md:max-w-[100%] max-md:block h-[100vh] border-r-2 bg-inputColor' :'hidden'}>
                                 <Button title={
                                     <div className='flex items-center gap-x-2'>
                                         <IoIosAddCircleOutline className='text-[24px]' />

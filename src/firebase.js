@@ -5,12 +5,12 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBNeYM-GJ4WCBBe18mPXRnG3u5K7ghCQBo',
-  authDomain: 'mf-motors.firebaseapp.com',
-  projectId: 'mf-motors',
-  storageBucket: 'mf-motors.appspot.com',
-  messagingSenderId: '228978601416',
-  appId: '1:228978601416:web:67c297a0519c3cd075a4fd'
+  apiKey: VITE_FIREBASE_API_KEY,
+  authDomain: VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: VITE_FIREBASE_PROJECT_ID,
+  storageBucket: VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: VITE_FIREBASE_APP_ID
 };
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

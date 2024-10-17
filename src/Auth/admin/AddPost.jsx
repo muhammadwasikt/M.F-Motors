@@ -26,12 +26,12 @@ const AddPost = ({setIsAddPost , isAddPost}) => {
         reset()
         setIsDownloadUrl(null)
         setIsAddPost(false)
+        // window.location.reload()
       }
       const storage = getStorage();
       const fileSubmit =(event)=>{
         setLoader(true)
         const file = event.target.files[0];
-        setIsFile(file.name)
         const imagesRefWithFolder = ref(storage, 'images/'+file.name);
         const uploadTask = uploadBytesResumable(imagesRefWithFolder, file);
         uploadTask.on('state_changed',

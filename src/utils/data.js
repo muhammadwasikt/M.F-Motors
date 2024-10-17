@@ -2,7 +2,7 @@ import { collection, getDocs, db } from "./import";
 
  const fetchUserData = async () => {
   try {
-    const querySnapshot = await getDocs(collection(db, "users"));
+    const querySnapshot = await getDocs(collection(db, "Admin"));
     const dataArr = [];
     querySnapshot.forEach((doc) => {
       dataArr.push(doc.data()); 

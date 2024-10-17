@@ -1,12 +1,9 @@
+import { errorImage } from "../../utils/import"
 
 const PageNotFound = () => {
   return (
-    <div className="w-[100%] h-[100vh] flex justify-center items-center">
-      <div>
-      <h1>404</h1>
-      <h2>Error</h2>
-      <p>Page not found</p>
-      </div>
+    <div className="bg-[#8a89890c]">
+      <img src={errorImage} className="w-[100%] h-[100vh] object-contain"/>
     </div>
   )
 }
